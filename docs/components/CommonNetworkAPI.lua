@@ -6,7 +6,7 @@ local CommonNetworkAPI = {}
 
 
 --- Get a list of all available cpus on the network.
---- @return AECpu[]
+--- @return AECpuMetadata[]
 function CommonNetworkAPI.getCpus() end
 
 
