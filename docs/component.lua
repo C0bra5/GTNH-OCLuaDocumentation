@@ -6,7 +6,8 @@ local component = {
 	gpu = require('components.gpu'),
 	screen = require('components.screen'),
 	gt_machine = require('components.gt_machine'),
-	me_interface = require('components.me_interface')
+	me_interface = require('components.me_interface'),
+	database = require('components.database')
 };
 
 
