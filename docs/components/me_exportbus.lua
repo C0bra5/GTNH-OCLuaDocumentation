@@ -1,0 +1,37 @@
+--- @meta
+
+--- @class me_exportbus: aemultipart
+--- @field address string # The component's address
+--- @field slot integer
+--- @field type "me_exportbus"
+local me_exportbus = {}
+
+---Configure the export bus pointing in the specified direction to export item stacks matching the specified descriptor.
+---@param side sides # The side of the export bus.
+---@param slot integer # The slot number to configure.
+---@param database string # The address of a database.
+---@param entry integer # The slot number of the item in the database.
+---@return boolean # True if success 
+function me_exportbus.setExportConfiguration(side, slot, database, entry) end
+
+---Configure the export bus pointing in the specified direction to export item stacks matching the specified descriptor.
+---@param side sides # The side of the export bus.
+---@param database string # The address of a database.
+---@param entry integer # The slot number of the item in the database.
+---@return boolean # True if success
+function me_exportbus.setExportConfiguration(side, database, entry) end
+
+---Get the configuration of the export bus pointing in the specified direction.
+---@param side sides # The side of the export bus.
+---@param slot? integer # The slot number of the item to get the configuration of.
+---@return ItemStack # The descriptor for the item to view.
+function me_exportbus.getExportConfiguration(side, slot) end
+
+---Make the export bus facing the specified direction perform a single export operation into the specified slot.
+---You can use a redstone control upgrade set to only on signal to make the export bus only export when called on by OC.
+---@param side sides # The side of the export bus.
+---@param slot integer # The slot number in the target destination
+---@return boolean # True if succesful
+function me_exportbus.exportIntoSlot(side, slot) end
+
+return me_exportbus
