@@ -1,6 +1,6 @@
 # GTNH-OCLuaDocumentation
 Basic Lua documentation for Open Computer types for use with GTNH
-
+![An example of the autocomplete documentation in action in vs code.](example.png)
 
 ## How to use for auto-completion in VS Code
 1. Install this extension: https://marketplace.visualstudio.com/items?itemName=sumneko.lua
