@@ -1,4 +1,4 @@
---- @meta 'component'
+---@meta 'component'
 
 ---@class component
 ---@field gt_machine gt_machine
