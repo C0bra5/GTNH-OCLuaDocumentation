@@ -1,6 +1,6 @@
 --- @meta 'component'
 
----@class Component
+---@class component
 ---@field gt_machine gt_machine
 ---@field inventory_controller inventory_controller
 ---@field gpu gpu
