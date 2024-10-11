@@ -56,7 +56,7 @@ function component.methods(address) end
 ---@param address string # The full address of the component
 ---@param type `T` # The full address of the component
 ---@return T
-function component.proxy(address,type) end
+function component.proxy(address, type) end
 
 
 ---Get the component type of the component with the specified address.
