@@ -9,6 +9,7 @@
 ---@field me_interface me_interface
 ---@field me_exportbus me_exportbus
 ---@field me_controller me_controller
+---@field level_maintainer level_maintainer
 ---@field tilechests tilechest
 ---@field database database
 local component = {}
