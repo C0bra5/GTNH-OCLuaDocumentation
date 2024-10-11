@@ -8,6 +8,7 @@
 ---@field aemultipart aemultipart
 ---@field me_interface me_interface
 ---@field me_exportbus me_exportbus
+---@field me_controller me_controller
 ---@field database database
 local component = {}
 
