@@ -1,15 +1,14 @@
---- @meta
+---@meta _
 
----@class gt_machine
----@field address string The component address of the gt_machine
----@field slot integer undocumented
-local gt_machine = {
-	type = 'gt_machine'
-};
+---@class gt_machine: BaseComponent
+---@field type 'gt_machine'
+local gt_machine = {}
+
 
 ---  Returns the amount of electricity contained in this Block, in EU units! (As a string for HUGE amounts.)
 ---@return string storedEuString
 function gt_machine.getStoredEUString() end
+
 
 ---Returns the average EU input of this block
 ---@return number averageInput
@@ -115,5 +114,3 @@ function gt_machine.getSteamCapacity() end
 ---Returns the max steam that can be stored in this block
 ---@return number steamCapacity
 function gt_machine.getSteamMaxStored() end
-
-return gt_machine;

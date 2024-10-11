@@ -1,8 +1,9 @@
---- @meta
+---@meta _
 
----@class gpu
----@field address string The component address of the screen
-local gpu = {};
+---@class gpu: BaseComponent
+---@field type 'gpu'
+local gpu = {}
+
 
 ---Tries to bind the GPU to a screen with the specified address.
 ---
@@ -18,14 +19,17 @@ local gpu = {};
 ---@return string|nil error a string where an error occures
 function gpu.bind(address, reset) end
 
+
 ---Returns the address of the screen bound to the gpu.
 ---@return string address
 function gpu.getScreen() end
+
 
 ---Gets the current background color.
 ---@return integer color 0x00RRGGBB int for generic colors, 0-15 when using a palettes
 ---@return boolean isPaletteColor True if the color is a palette number
 function gpu.getBackground() end
+
 
 ---Sets the background color.
 ---@param color integer the color an integer in the format of 0x00RRGGBB or the palette index when using a palette
@@ -34,10 +38,12 @@ function gpu.getBackground() end
 ---@return integer|nil oldPaletteIndex If the old background was a palette color, the index of that palette
 function gpu.setBackground(color, isPaletteIndex) end
 
+
 ---Gets the current foreground/text color.
 ---@return integer color 0x00RRGGBB int for generic colors, 0-15 when using a palettes
 ---@return boolean isPaletteColor True if the color is a palette number
 function gpu.getForeground() end
+
 
 ---Sets the foreground/text color.
 ---@param color integer the color an integer in the format of 0x00RRGGBB or the palette index when using a palette
@@ -52,19 +58,23 @@ function gpu.setForeground(color, isPaletteIndex) end
 ---@return integer color the color as an integer in the format of 0x00RRGGBB.
 function gpu.getPaletteColor(index) end
 
+
 ---Sets the RGB value of the color in the palette at the specified index.
 ---@param index integer the index of the palette.
 ---@param value integer The new color as an integer in the format of 0x00RRGGBB.
 ---@return integer oldColor The old color as an integer in the format of 0x00RRGGBB.
 function gpu.setPaletteColor(index, value) end
 
+
 ---Gets the maximum supported color depth supported by the GPU and the screen it is bound to (minimum of the two).
 ---@return integer depth The maximum color depth of the gpu.
 function gpu.maxDepth() end
 
+
 ---Gets the currently set color depth of the GPU/screen, in bits. Can be 1, 4 or 8.
 ---@return integer depth The maximum color depth of the gpu.
 function gpu.getDepth() end
+
 
 ---Sets the color depth to use. Can be up to the maximum supported color depth.
 --- If a larger or invalid value is provided it will throw an error.
@@ -72,15 +82,18 @@ function gpu.getDepth() end
 ---@return "OneBit"|"FourBit"|"EightBit" oldDepthString The old depth as one of the strings OneBit, FourBit, or EightBit.
 function gpu.setDepth(bit) end
 
+
 ---Gets the maximum resolution supported by the GPU and the screen it is bound to (minimum of the two).
 ---@return integer width The maximum resolution's width
 ---@return integer height The maximum resolution's height
 function gpu.maxResolution() end
 
+
 ---Gets the current resolution of the GPU.
 ---@return integer width The current resolution's width
 ---@return integer height The current resolution's height
 function gpu.getResolution() end
+
 
 ---Sets the specified resolution. Can be up to the maximum supported resolution.
 ---If a larger or invalid resolution is provided it will throw an error.
@@ -89,10 +102,12 @@ function gpu.getResolution() end
 ---@return boolean success True if the resolution was changed (may return false if an attempt was made to set it to the same value it was set before), false otherwise.
 function gpu.setResolution(width, height) end
 
+
 ---Get the current viewport resolution.
 ---@return integer width The width of the viewport
 ---@return integer height The height of the viewport
 function gpu.getViewport() end
+
 
 ---Set the current viewport resolution.
 ---
@@ -104,6 +119,7 @@ function gpu.getViewport() end
 ---@return boolean success True if it was changed (may return false if an attempt was made to set it to the same value it was set before), false otherwise.
 function gpu.setViewport(width, height) end
 
+
 ---Gets the character, foreground/text color and the background color at a specific coordinate
 ---@param x integer The x coordinate of the character
 ---@param y integer The y coordinate of the character
@@ -113,6 +129,7 @@ function gpu.setViewport(width, height) end
 ---@return integer|nil foregroundPalette The palette index if the text color uses a palette.
 ---@return integer|nil backgroundPalette The palette index if the background color uses a palette.
 function gpu.get(x, y) end
+
 
 ---Writes a string to the screen, starting at the specified coordinates.
 ---
@@ -129,6 +146,7 @@ function gpu.get(x, y) end
 ---@return string char true if the string was displayed succesfully
 function gpu.set(x, y, value, vertical) end
 
+
 ---Copies a portion of the screens buffer to another location.
 ---
 ---The source rectangle is specified by the x, y, width and height parameters.
@@ -142,6 +160,7 @@ function gpu.set(x, y, value, vertical) end
 ---@param ty integer The y coordinate of the top right corner of the destination.
 ---@return boolean success on success, false otherwise.
 function gpu.copy(x, y, width, height, tx, ty) end
+
 
 ---Fills a rectangle in the screen buffer with the specified character.
 ---
@@ -158,6 +177,7 @@ function gpu.copy(x, y, width, height, tx, ty) end
 ---@return boolean success True on success, false otherwise.
 function gpu.fill(x, y, width, height, char) end
 
+
 ---Returns the index of the currently selected buffer.
 ---
 ---0 is reserved for the screen, and may return 0 even when there is no screen
@@ -171,9 +191,11 @@ function gpu.getActiveBuffer() end
 ---@return integer|nil bufferIndex Returns nil for an invalid index (0 is valid even with no screen)
 function gpu.setActiveBuffer(index) end
 
+
 ---Returns an array of all current page indexes (0 is not included in this list, that is reserved for the screen).
 ---@return integer[] bufferIndexes the indexes of all the active buffers, screen not included
 function gpu.buffers() end
+
 
 ---Allocates a buffer with the gpu's max resolution as it's dimention.
 ---
@@ -184,6 +206,7 @@ function gpu.buffers() end
 ---@return string|nil error A message if the buffer couldn't be allocated
 function gpu.allocateBuffer() end
 
+
 ---Allocates a buffer with the specified dimentions.
 ---
 ---A buffer can be allocated even when there is no screen bound to this gpu.
@@ -193,11 +216,13 @@ function gpu.allocateBuffer() end
 ---@return string|nil error A message if the buffer couldn't be allocated
 function gpu.allocateBuffer(width, height) end
 
+
 ---Frees the current buffer
 ---
 ---The gpu automatically switches back to buffer 0 (the screen buffer)
 ---@return boolean success True if the buffer was succesfully freed
 function gpu.freeBuffer() end
+
 
 ---Frees the specified buffer
 ---
@@ -207,14 +232,17 @@ function gpu.freeBuffer() end
 ---@return boolean success True if the buffer was succesfully freed
 function gpu.freeBuffer(bufferIndex) end
 
+
 ---Removes all buffers, freeing all video memory. The buffer index is always 0 after this call.
 function gpu.freeAllBuffers() end
+
 
 ---Returns the total memory size of the gpu vram.
 ---
 ---This does not include the screen.
 ---@return integer totalMemory The total vram capacity.
 function totalMemory() end
+
 
 ---Returns the total free memory not allocated to buffers. This does not include the screen.
 ---@return integer freeMemory The remaining amount of vram.
@@ -226,11 +254,13 @@ function gpu.freeMemory() end
 ---@return integer height The height of the active buffer.
 function gpu.getBufferSize() end
 
+
 ---Returns the dimentions of the specified buffer
 ---@param bufferIndex integer The index of the buffer you want the dimentions of.
 ---@return integer width The width of the active buffer.
 ---@return integer height The height of the active buffer.
 function gpu.getBufferSize(bufferIndex) end
+
 
 ---Copy a region from buffer to buffer, screen to buffer, or buffer to screen.
 ---
@@ -250,5 +280,3 @@ function gpu.getBufferSize(bufferIndex) end
 ---@param srcY? integer The y coordinate of the top left corner of the rectangle to copy on the source buffer.
 ---@return boolean success True on success
 function gpu.bitblt(dst, dstX, dstY, width, height, src, srcX, srcY) end
-
-return gpu;

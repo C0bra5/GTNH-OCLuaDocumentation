@@ -1,9 +1,9 @@
---- @meta
+---@meta _
 
 ---@alias redstoneIOStatus table<(0|1|2|3|4|5), integer>
 
----@class redstone
----@field address string The component address of the redstoneIO
+---@class redstone: BaseComponent
+---@field type 'redstone'
 local redstone = {};
 
 ---Returns current incoming (non-bundled) redstone values on all sides..
@@ -34,5 +34,3 @@ function redstone.setOutput(side, value) end
 ---@param values redstoneIOStatus # A side-value dictionary for the new output values.
 ---@return redstoneIOStatus oldValues # the old output values
 function redstone.setOutput(values) end
-
-return redstone;

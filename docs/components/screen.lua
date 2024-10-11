@@ -1,7 +1,7 @@
---- @meta
+---@meta _
 
----@class screen
----@field address string The component address of the screen
+---@class screen: BaseComponent
+---@field type 'screen'
 local screen = {};
 
 ---Returns whether the screen is currently on.
@@ -46,5 +46,3 @@ function screen.setTouchModeInverted(enabled) end
 ---Check to see if Inverted Touch mode is enabled (Sneak-activate opens GUI is set to true).
 ---@return boolean isInverted true if inverted touch mode is enabled.
 function screen.isTouchModeInverted() end
-
-return screen;
