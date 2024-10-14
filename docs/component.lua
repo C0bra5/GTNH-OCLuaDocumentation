@@ -5,6 +5,7 @@
 ---@field inventory_controller inventory_controller
 ---@field gpu gpu
 ---@field screen screen
+---@field glasses glasses
 ---@field aemultipart aemultipart
 ---@field me_interface me_interface
 ---@field me_exportbus me_exportbus
