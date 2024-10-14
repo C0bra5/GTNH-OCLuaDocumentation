@@ -1,4 +1,4 @@
----@meta sides
+---@meta 'sides'
 
 ---@class sides
 local sides = {}
