@@ -13,6 +13,7 @@
 ---@field level_maintainer level_maintainer
 ---@field tilechests tilechest
 ---@field database database
+---@field redstone redstone
 local component = {}
 
 
