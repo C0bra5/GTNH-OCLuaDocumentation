@@ -4,10 +4,10 @@
 local AECraftable = {}
 
 ---Sends a craft request to the ME system for this pattern
----@param amount string           # The amount of items to craft
+---@param amount number           # The amount of items to craft
 ---@param prioritizePower boolean # Wether to prioririze power usage idk needs more digging?
 ---@param cpuName string          # the name of the cpu to start the craft in
----@return AECraftingJob # A tracker for the craft 
+---@return AECraftingJob # A tracker for the craft
 function AECraftable.request(amount, prioritizePower, cpuName) end
 
 
