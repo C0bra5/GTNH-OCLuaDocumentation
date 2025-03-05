@@ -3,7 +3,6 @@
 --#region AECraftingJob
 
 ---@class AECraftingJob
----@class type "userdata"
 local AECraftingJob = {}
 
 
