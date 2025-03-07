@@ -49,7 +49,7 @@ function CommonNetworkAPI.getCpus() end
 
 
 ---Get a list of known item recipes. These can be used to issue crafting requests.
----@return AECraftable
+---@return AECraftable[]
 function CommonNetworkAPI.getCraftables(filter) end
 
 
@@ -74,7 +74,7 @@ function CommonNetworkAPI.getAvgPowerUsage() end
 function CommonNetworkAPI.getMaxStoredPower() end
 
 
----Get the stored power in the network. 
+---Get the stored power in the network.
 ---@return number
 function CommonNetworkAPI.getStoredPower() end
 
